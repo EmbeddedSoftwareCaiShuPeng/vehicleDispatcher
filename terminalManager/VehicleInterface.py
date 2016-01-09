@@ -1,7 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from model import VehicleAccess, VehicleRecordAccess
+from model import VehicleAccess, VehicleRecordAccess, UserAccess
 
 import json, pymongo, httplib, hashlib, uuid
 from datetime import datetime
@@ -45,6 +45,16 @@ def vehicleData(request):
                 'time' : datetime.now(),
                 'data' : info['data']
             }
+            VehicleRecordAccess.addVehicleRecord(vehicle_record)
+
+            if vehicle['status'] == 3 \
+                and info['data']['location']['lat'] == vehicle['task']['dest']['lat'] \
+                and info['data']['location']['lng'] == vehicle['task']['dest']['lng']:
+                vehicle['task'] = ""
+                vehicle['status'] = 2
+                user = UserAccess.getUserBuId(vehicle['user_id'])
+                user['status'] =2
+                UserAccess.editUser(user)
 
             res['data'] = {}
             if int(vehicle['accept']) & 1 == 1:
@@ -55,7 +65,6 @@ def vehicleData(request):
                 res['result'] = 1
 
             VehicleAccess.editVehicle(vehicle)
-            VehicleRecordAccess.addVehicleRecord(vehicle_record)
         else:
             res['result'] = 0
             res['message'] = 'The vehicle does noe exist.'

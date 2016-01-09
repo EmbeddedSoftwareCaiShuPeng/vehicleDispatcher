@@ -20,4 +20,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^model/', include('model.urls')),
+    url(r'^terminal/', include('terminalManager.urls')),
+    url(r'^controller/', include('controller.urls')),
 ]

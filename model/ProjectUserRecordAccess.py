@@ -7,7 +7,7 @@ def addProjectUserRecord(record):
     res['result'] = 1
     res['message'] = ''
 
-    if ProjectUserRecord.insert_one(record).record != '':
+    if ProjectUserRecord.insert_one(record).inserted_id != '':
         res['message'] = 'success'
     else:
         res['result'] = 0

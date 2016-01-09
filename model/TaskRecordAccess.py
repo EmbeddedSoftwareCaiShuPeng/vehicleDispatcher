@@ -7,7 +7,7 @@ def addTaskRecord(record):
     res['result'] = 1
     res['message'] = ''
 
-    if TaskRecord.insert_one(record).record != '':
+    if TaskRecord.insert_one(record).inserted_id != '':
         res['message'] = 'success'
     else:
         res['result'] = 0

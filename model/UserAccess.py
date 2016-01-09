@@ -11,7 +11,7 @@ def addUser(user):
         res['message'] = 'success'
     else:
         res['result'] = 0
-        res['message'] = 'Fail to add user!'
+        res['message'] = 'Fail to add user in database!'
 
     return res
 
@@ -25,7 +25,7 @@ def deleteUserById(id):
         res['message'] = 'success'
     else:
         res['result'] = 0
-        res['message'] = 'Fail to delete user!'
+        res['message'] = 'Fail to delete user in database!'
 
     return res
 
@@ -39,7 +39,7 @@ def editUser(user):
         res['message'] = 'success'
     else:
         res['result'] = 0
-        res['message'] = 'Fail to modify user!'
+        res['message'] = 'Fail to modify user in database!'
 
     return res
 
