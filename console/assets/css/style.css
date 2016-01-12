@@ -159,32 +159,11 @@ button:active {
     -moz-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-
+}
+.message {
+    margin: 20;
 }
 
-.connect {
-    width: 305px;
-    margin: 35px auto 0 auto;
-    font-size: 18px;
-    font-weight: 700;
-    text-shadow: 0 1px 3px rgba(0,0,0,.2);
-}
-
-.connect a {
-    display: inline-block;
-    width: 32px;
-    height: 35px;
-    margin-top: 15px;
-    -o-transition: all .2s;
-    -moz-transition: all .2s;
-    -webkit-transition: all .2s;
-    -ms-transition: all .2s;
-}
-
-.connect a.facebook { background: url(../img/facebook.png) center center no-repeat; }
-.connect a.twitter { background: url(../img/twitter.png) center center no-repeat; }
-
-.connect a:hover { background-position: center bottom; }
 
 /*－－－增加部份的CSS－－－*/
 form,input,button{font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif; text-decoration:none; width:100%;}

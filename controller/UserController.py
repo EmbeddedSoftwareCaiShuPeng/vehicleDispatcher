@@ -42,7 +42,7 @@ def login(request):
     else:
         res['result'] = 0
         res['message'] = 'Wrong request.'
-
+    print res
     return HttpResponse(json.dumps(res), content_type="application/json")
 
 
