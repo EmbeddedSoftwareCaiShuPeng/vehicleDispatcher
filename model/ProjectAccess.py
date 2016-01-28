@@ -68,3 +68,15 @@ def getProjectById(id):
         return project
     else: 
         return None
+
+def getProjectByName(name):
+    item = Project.find_one({'name': name})
+    if item:
+        project = {
+            'id' : item['id'],
+            'name' : item['name'],
+            'description' : item['description'],
+        }
+        return project
+    else: 
+        return None

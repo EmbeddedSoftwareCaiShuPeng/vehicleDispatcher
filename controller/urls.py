@@ -8,11 +8,13 @@ urlpatterns = [
     url(r'^user/login', UserController.login),
     url(r'^user/logout', UserController.logout),
     url(r'^user/isLogin', UserController.isLogin),
+    url(r'^user/current', UserController.getCurrentUser),
 
     url(r'^user/addUser', UserController.addUser),
     url(r'^user/deleteUser', UserController.deleteUser),
     url(r'^user/editUser', UserController.editUser),
     url(r'^user/getAllUser', UserController.getAllUser),
+    url(r'^user/assignProject', UserController.assignProject),
 
     url(r'^vehicle/addVehicle', VehicleController.addVehicle),
     url(r'^vehicle/deleteVehicle', VehicleController.deleteVehicle),

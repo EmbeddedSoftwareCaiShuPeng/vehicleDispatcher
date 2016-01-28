@@ -36,7 +36,7 @@ def getAllProjectUserRecord():
         record = {
             'id' : item['id'],
             'project_id' : item['project_id'],
-            'vehicle_id' : item['vehicle_id'],
+            'user_id' : item['user_id'],
             'start_time' : item['start_time'],
             'end_time' : item['end_time'],
         }

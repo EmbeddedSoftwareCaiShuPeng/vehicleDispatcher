@@ -3,11 +3,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     
-    <style type="text/css">
-        body, html {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-        #allmap{float: left; height: 100%; width: 80%;}
-        #console{float: left; height: 100%; width: 20%; font-size;14px; line-height:20px;}
-    </style>
     <link rel="stylesheet" href="assets/css/console.css">
 
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=EQFHxc2pYOzVM8qe5piTmn2U"></script>
@@ -19,11 +14,20 @@
         <div id = "title">
             <a id = "logout" href = "/static/login.html"> Logout </a>
         </div>
-        <div id = "list">
+        <div id = "info">
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="news.asp">News</a></li>
-                <li><a href="contact.asp">Contact</a></li>
+                <li><button id = "user">User</button></li>
+                <li><button id = "vehicle">Vehicle</button></li>
+                <li><button id = "project">Project</button></li>
+            </ul>
+        </div>
+        <div id = "list">
+        </div>
+        <div id = "oplist">
+            <ul>
+                <li><button id = "add">Add</button></li>
+                <li><button id = "delete">Delete</button></li>
+                <li><button id = "edit">Edit</button></li>
             </ul>
         </div>
         <div id = "display"> display</div>
@@ -31,16 +35,15 @@
 </body>
 </html>
 
+<script type="text/javascript" src="assets/js/all.js"></script>
+<script type="text/javascript" src="assets/js/user.js"></script>
+<script type="text/javascript" src="assets/js/vehicle.js"></script>
+<script type="text/javascript" src="assets/js/project.js"></script>
+<script type="text/javascript" src="assets/js/map.js"></script>
+<script type="text/javascript" src="assets/js/page.js"></script>
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/console.js"></script>
 <!-- <script type="text/javascript" src="test_json.js"></script> -->
 <script type="text/javascript">
-
-var map = new BMap.Map("allmap");
-map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
-
-
-var p3 = new BMap.Point(116.408328,39.919141);
-var p4 = new BMap.Point(116.358328,39.919141);
 
 </script>

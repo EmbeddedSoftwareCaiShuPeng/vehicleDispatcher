@@ -8,11 +8,12 @@ ul {
 
 li {
     float:left;
+    width: 33.3%;
 }
 
-a:link,a:visited{
+a:link,a:visited,tr:visited{
     display:block;
-    width:113px;
+    width:100%;
     font-weight:bold;
     color:#FFFFFF;
     background-color:#FF83FA;
@@ -26,6 +27,133 @@ a:hover,a:active {
     background-color:#9400D3;
 }
 
+.page-container {
+    width:auto;
+    height:auto;
+    margin: 120px auto 0 auto;
+}
+
+h1 {
+    text-align:center;
+    font-family: sans-serif;
+    color: #9400D3;
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+
+form {
+    color: #9400D3;
+    position: relative;
+    width: 350px;
+    margin: 15px auto 0 auto;
+    text-align: center;
+}
+
+input {
+    width: 270px;
+    height: 42px;
+    margin-top: 5px;
+    background: #2d2d2d; /* browsers that don't support rgba */
+    background: rgba(45,45,45,.15);
+    border-radius: 6px;
+    border: 1px solid #3d3d3d; /* browsers that don't support rgba */
+    border: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: blue;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    vertical-align:middle;
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+
+input:-moz-placeholder { color: #9933cc; }
+input:-ms-input-placeholder { color: #9933cc; }
+input::-webkit-input-placeholder { color: #9933cc; }
+
+input:focus {
+    outline: none;
+    -moz-box-shadow:
+        0 2px 3px 0 rgba(0,0,0,.1) inset,
+        0 2px 7px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow:
+        0 2px 3px 0 rgba(0,0,0,.1) inset,
+        0 2px 7px 0 rgba(0,0,0,.2);
+    box-shadow:
+        0 2px 3px 0 rgba(0,0,0,.1) inset,
+        0 2px 7px 0 rgba(0,0,0,.2);
+}
+
+.error {
+    display: none;
+    position: absolute;
+    top: 27px;
+    right: -55px;
+    width: 40px;
+    height: 40px;
+    background: #2d2d2d; /* browsers that don't support rgba */
+    background: rgba(45,45,45,.25);
+    border-radius: 8px;
+}
+
+.error span {
+    display: inline-block;
+    margin-left: 2px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 40px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -o-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+}
+.message {
+    margin: 20;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: #1E90FF;
+    border: 1px solid #4682B4;
+    box-shadow:
+        0 15px 30px 0 rgba(255,255,255,.25) inset,
+        0 2px 7px 0 rgba(0,0,0,.2);
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+    -o-transition: all .2s;
+    -moz-transition: all .2s;
+    -webkit-transition: all .2s;
+    -ms-transition: all .2s;
+}
+
+.submit_button button{
+    height: 30px;
+    width: 60px;
+}
+
+button:hover {
+    background: #9400D3;
+}
+
+button:active {
+    box-shadow:        
+        0 5px 8px 0 rgba(0,0,0,.1) inset,
+        0 1px 4px 0 rgba(0,0,0,.1);
+
+    border: 0px solid #ef4300;
+}
+
 body, html {
     width: 100%;
     height: 100%;
@@ -34,36 +162,93 @@ body, html {
 }
 
 #logout {
-    height: 22px;
+    height: 73%;
     float: right;
+    width: 25%;
 }
 
 #allmap {
     float: left; 
     height: 100%; 
-    width: 80%;
+    width: 75%;
 }
         
 #console{
     background-color:#EEE8CD;
     float: left; 
     height: 100%; 
-    width: 20%; 
+    width: 25%; 
     font-size;14px; 
     line-height:20px;
 }
 
 #title {
     height: 3%;
-    border: 5px solid #EE82EE;
+    border: 3px solid #EE82EE;
+}
+
+#info {
+    height: 3%;
+    border: 3px solid #EE82EE;
 }
 
 #list {
-    height: 60%;
-    border: 4px solid #EE82EE;
+    overflow: auto;
+    width: 100%;
+    height: 40%;
+    border: 3px solid #EE82EE;
+}
+
+#oplist {
+    height:  3%;
+    border: 3px solid #EE82EE;
 }
 
 #display {
-    height: 500px;
-    border: 4px solid #EE82EE;
+    height: 50%;
+    border: 3px solid #EE82EE;
 }
+
+#content {
+    width:65%; 
+    max-width:690px; 
+    margin:6% auto 0;
+}    
+
+table {
+    table-layout:fixed;
+    overflow: scroll;
+    border:1px solid #d3d3d3;
+    background:#fefefe;
+    width:100%;
+    margin:% auto 0;
+    -moz-border-radius:5px; /* FF1+ */
+    -webkit-border-radius:5px; /* Saf3-4 */
+    border-radius:5px;
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    padding:5px 5px 5px; 
+    text-align:center; 
+}
+
+th {
+    padding-top:8px; 
+    padding-bottom: 8px;
+    text-shadow: 1px 1px 1px #fff; 
+    background:#e8eaeb;
+}
+
+td {
+    border-top:1px solid #e0e0e0; 
+    border-right:1px solid #e0e0e0;
+}
+
+tr.odd-row td {background:#f6f6f6;}
+
+td.first, th.first {text-align:left}
+
+td.last {border-right:none;}
+

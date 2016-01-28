@@ -50,20 +50,14 @@ def vehicleData(request):
             if vehicle['status'] == 3 \
                 and info['data']['location']['lat'] == vehicle['task']['dest']['lat'] \
                 and info['data']['location']['lng'] == vehicle['task']['dest']['lng']:
-                vehicle['task'] = ""
+                vehicle['task'] = {}
                 vehicle['status'] = 2
                 user = UserAccess.getUserBuId(vehicle['user_id'])
                 user['status'] =2
                 UserAccess.editUser(user)
 
             res['data'] = {}
-            if int(vehicle['accept']) & 1 == 1:
-                res['result'] = 2
-                res['data']['project_id'] = vehicle['project_id'] 
-                vehicle['accept'] = int(vehicle['accpet']) & 2
-            else:
-                res['result'] = 1
-
+            res['result'] = 1
             VehicleAccess.editVehicle(vehicle)
         else:
             res['result'] = 0
@@ -83,10 +77,10 @@ def vehicleTask(request):
         vehicle_id = info['vehicle_id']
         vehicle = VehicleAccess.getVehicleById(vehicle_id)
         if vehicle:
-            if int(vehicle['accept']) & 2 == 2:
+            if  vehicle['accept']== 1:
                 res['result'] = 1
                 res['data'] = vehicle['task']
-                vehicle['accept'] = int(vehicle['accept']) & 1
+                vehicle['accept'] = 0
             else:
                 res['result'] = 0
                 res['message'] = 'No new task.'

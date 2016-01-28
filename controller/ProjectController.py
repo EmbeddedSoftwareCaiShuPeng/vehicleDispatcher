@@ -32,7 +32,7 @@ def addProject(request):
 
     if request.method == 'POST':
         info = json.loads(request.body)
-        if not ProjectAccess.getProjectById(info['id']):
+        if not ProjectAccess.getProjectByName(info['name']):
             info['id'] = uuid.uuid1().hex
             final = ProjectAccess.addProject(info)
             res['result'] = final['result']

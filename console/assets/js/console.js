@@ -1,4 +1,12 @@
 jQuery(document).ready(function() {
+    getCurrentUser();
+    getAllUser();
+    getAllProject();
+    getAllVehicle();
+    refreshAllMarker();
+    pageInit();
+    itemInit();
+    opInit();
     $('#logout').click(function(){
         var result = {};
         $.ajax({

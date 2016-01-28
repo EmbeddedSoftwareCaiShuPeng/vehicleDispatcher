@@ -31,7 +31,7 @@ def login(request):
                 res['data']['user_id'] = user['id']
                 res['data']['user_type'] = user['type']
                 res['data']['name'] = user['name']
-                if vehicle['task'] != "":
+                if vehicle['task']:
                     user['status'] = 3
                     vehicle['status'] = 3
                 else:
