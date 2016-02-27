@@ -353,21 +353,22 @@ function displayProject(name) {
     if (onlineUser['type'] == 'admin') {
         info += "<div align = 'center'><button type='button' id='user_manager'>Manage user</button> \
             <button type='button' id='vehicle_manager'>Manage vehicle</button></div>";
-            $('#user_manager').css('height', '10%');
-            $('#user_manager').css('width', '35%');
-            $('#user_manager').css('margin', '10px');
-            $('#vehicle_manager').css('margin', '10px');
-            $('#vehicle_manager').css('height', '10%');
-            $('#vehicle_manager').css('width', '35%');
-            $('#display').html(info);
+        $('#display').html(info);
+        $('#user_manager').css('height', '10%');
+        $('#user_manager').css('width', '35%');
+        $('#user_manager').css('margin', '10px');
+        $('#vehicle_manager').css('margin', '10px');
+        $('#vehicle_manager').css('height', '10%');
+        $('#vehicle_manager').css('width', '35%');
+        
 
-            $('#user_manager').click(function(){
-                showProUser(project['id']);
-            });
+        $('#user_manager').click(function(){
+            showProUser(project['id']);
+        });
 
-            $('#vehicle_manager').click(function(){
-                showProVehicle(project['id']);
-            });
+        $('#vehicle_manager').click(function(){
+            showProVehicle(project['id']);
+        });
     }else {
         $('#display').html(info);
     }

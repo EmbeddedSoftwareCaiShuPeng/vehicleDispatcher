@@ -1,7 +1,6 @@
 
 function getPath(data) {
     var result = {};
-    console.log(data);
     $.ajax({
         url: '/controller/vehicle/assignTask',
         type: 'POST',
@@ -214,9 +213,9 @@ function displayVehicle(number) {
     info += "<tr><th rowspan = '2'>Location</th><th>Lat</th><td>" + vehicle['data']['location']['lat'] + "</td></tr>";
     info += "<tr><th>Lng</th><td>" + vehicle['data']['location']['lng'] + "</td></tr>";
     info += "<tr><th>Temperature</th><td colspan = '2'>" + vehicle['data']['temp'] + "</td></tr>";
-    if (vehicle['task'] == null){
-        info += "<tr><th rowspan = '2'>Task</th><th>Lat</th><td>" + vehicle['task']['destination']['lat'] + "</td></tr>";
-        info += "<tr><th>Lng</th><td>" + vehicle['data']['destination']['lng'] + "</td></tr>";
+    if (vehicle['task']['path'] != undefined){
+        info += "<tr><th rowspan = '2'>Destination</th><th>Lat</th><td>" + vehicle['task']['dest']['lat'] + "</td></tr>";
+        info += "<tr><th>Lng</th><td>" + vehicle['task']['dest']['lng'] + "</td></tr>";
     }
     info += "<tr><th>Status</th><td colspan = '2'>" + vehicle['status'] + "</td></tr>";
     info += "</table>";
@@ -243,6 +242,7 @@ function displayVehicle(number) {
 
          $('#assign_task').click(function(){
             taskVehicle = vehicle;
+            markerList[vehicle['number']]['marker'].setAnimation(BMAP_ANIMATION_BOUNCE);
             map.addEventListener("click",selectDes);
         });
 

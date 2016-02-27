@@ -1,7 +1,8 @@
 var map = new BMap.Map("allmap");
 map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
 map.enableScrollWheelZoom(true);
-var myIcon = new BMap.Icon("assets/img/lorry.png", new BMap.Size(48,48));
+var vehicleIcon = new BMap.Icon("assets/img/lorry.png", new BMap.Size(48,48));
+var destIcon = new BMap.Icon("assets/img/dest.png", new BMap.Size(48,48));
 
 
 function refreshAllMarker() {
@@ -15,7 +16,7 @@ function refreshAllMarker() {
             var lat = vehicleList[i]['data']['location']['lat'];
             markerList[number]['point'] = new BMap.Point(lng, lat);
             setMarker(markerList[number]['point'], number);
-            if (vehicleList[i]['task'] != undefined) {
+            if (vehicleList[i]['task']['path'] != undefined) {
                 drawPath(number, vehicleList[i]['task']['path']);
             }
         }else {
@@ -39,7 +40,7 @@ function deleteMarker(number) {
 }
 
 function setMarker(point, number){
-    markerList[number]['marker'] = new BMap.Marker(point, {icon: myIcon});
+    markerList[number]['marker'] = new BMap.Marker(point, {icon: vehicleIcon});
     map.addOverlay(markerList[number]['marker']);
     markerList[number]['marker'].addEventListener("click", function() {
         displayVehicle(number);
@@ -77,6 +78,7 @@ function selectDes(e) {
         drawPath(taskVehicle['number'], path);
 
         map.removeEventListener("click",selectDes);
+        markerList[taskVehicle['number']]['marker'].setAnimation(null);
     } else{
     }
 }
@@ -84,6 +86,7 @@ function selectDes(e) {
 function drawPath(number, pathArr){
     var pathSize = pathArr.length;
     var path = [];
+
     for (var i = 0; i < pathSize; i++) {
         point = new BMap.Point(0,0);
         point.lng = parseFloat(pathArr[i].lng);
@@ -96,7 +99,18 @@ function drawPath(number, pathArr){
     );
     if (markerList[number]['polyine'] != undefined) {
         map.removeOverlay(markerList[number]['polyine']);
+        map.removeOverlay(markerList[number]['destMarker']);
     }
+
+    var point = new BMap.Point(0,0);
+    point.lng = parseFloat(pathArr[pathSize - 1].lng);
+    point.lat = parseFloat(pathArr[pathSize - 1].lat);
+    markerList[number]['destMarker'] = new BMap.Marker(point, {icon: destIcon});
+    map.addOverlay(markerList[number]['destMarker']);
+    markerList[number]['destMarker'].addEventListener("click", function() {
+        displayVehicle(number);
+    });
+
     markerList[number]['polyine'] = polyline;
     map.addOverlay(polyline);    
 }

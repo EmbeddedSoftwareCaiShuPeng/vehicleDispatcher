@@ -102,7 +102,8 @@ function displayUser(username) {
     info += '<tr><th>Name</th><td>' + user['name'] + '</td></tr>';
     info += '<tr><th>Type</th><td>' + user['type'] + '</td></tr>';
     info += '<tr><th>Project</th><td>' + projectname + '</td></tr>';
-    info += '<tr><th>Vehicle</th><td>' + vehiclenumber + '</td></tr>';
+    if (user['type'] == 'driver')
+        info += '<tr><th>Vehicle</th><td>' + vehiclenumber + '</td></tr>';
     info += '<tr><th>Phone</th><td>' + user['phone'] + '</td></tr>';
     info += '<tr><th>Status</th><td>' + user['status'] + '</td></tr>';
     info += '</table>';
